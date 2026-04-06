@@ -1,22 +1,94 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Your Name - Publications</title>
-    <meta charset="UTF-8">
+  <title>Sukayna Fadlallah - Publications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+    h1 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+    .pub {
+      margin-bottom: 15px;
+    }
+    a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+  </style>
 </head>
+<body>
 
-<body style="font-family: Arial; max-width: 800px; margin: auto; line-height: 1.6;">
+<h1>Sukayna Fadlallah</h1>
+<h2>Publications</h2>
 
-    <h1>Sukayna Fadlallah</h1>
-    <p><b>Researcher | Biomedical Sciences</b></p>
+<div id="pub-list"></div>
 
-    <h2>Publications</h2>
+<script>
+const publications = [
+  { year: 2025, text: "<strong>Fadlallah S</strong>, et al. Autoantibody Biomarkers and First-Line Therapy Response in RA. <em>RMD Open</em> (under review)." },
 
-    <p><b>Full publication list:</b> 
-    <a href="Publication list SF.pdf" target="_blank">Download here (PDF)</a></p>
+  { year: 2024, text: "Vandormael P*, <strong>Fadlallah S*</strong>, et al. Novel antibodies predict remission failure in RA. <em>RMD Open</em>. <a href='https://doi.org/10.1136/rmdopen-2024-004743'>DOI</a>" },
 
-    <h2>Contact</h2>
-    <p>Email: sukaynafadlallah@gmail.com</p>
+  { year: 2024, text: "Karout I, et al., <strong>Fadlallah S</strong>. Endosomal Toll-like Receptor Inhibitors in IBD model. <em>Viruses</em>. <a href='https://doi.org/10.3390/v16040624'>DOI</a>" },
+
+  { year: 2024, text: "Shehab M, et al., <strong>Fadlallah S</strong>. IL-17A response to EBV DNA. <em>Frontiers in Molecular Biosciences</em>. <a href='https://doi.org/10.3389/fmolb.2024.1243366'>DOI</a>" },
+
+  { year: 2023, text: "<strong>Fadlallah S</strong>, et al. EBV DNA and Gut Microbiota in Arthritis. <em>Microbiology Spectrum</em>. <a href='https://doi.org/10.1128/spectrum.02042-23'>DOI</a>" },
+
+  { year: 2021, text: "El-Baba C, et al., <strong>Fadlallah S</strong>. Terpenoids' anti-cancer effects. <em>Apoptosis</em>." },
+  { year: 2021, text: "Andari S, et al., <strong>Fadlallah S</strong>. EBV DNA exacerbates colitis. <em>Viruses</em>." },
+  { year: 2021, text: "<strong>Fadlallah S</strong>, et al. EBV DNA effect on arthritis. <em>Frontiers in Immunology</em>." },
+
+  { year: 2020, text: "<strong>Fadlallah S</strong>, et al. IL-17A in COVID-19 meta-analysis. <em>Research Square</em>." },
+  { year: 2020, text: "Masoud K, et al., <strong>Fadlallah S</strong>. TB genotyping in Lebanon. <em>JIDC</em>." },
+
+  { year: 2019, text: "Harakeh S, et al., <strong>Fadlallah S</strong>. Nutrient effects in ESBL resistance. <em>Saudi Journal of Biological Sciences</em>." },
+  { year: 2019, text: "<strong>Fadlallah S</strong>, et al. PulseNet Lebanon overview. <em>Foodborne Pathogens and Disease</em>." },
+
+  { year: 2018, text: "<strong>Fadlallah S</strong>, et al. Campylobacter coli resistance. <em>Acta Scientific Microbiology</em>." },
+
+  { year: 2017, text: "Kanafani ZA, et al., <strong>Fadlallah S</strong>. ESBL colonization study. <em>ARIC</em>." },
+  { year: 2017, text: "<strong>Fadlallah S</strong>, et al. Salmonella epidemiology. <em>JIDC</em>." },
+
+  { year: 2016, text: "Haidar N, et al., <strong>Fadlallah S</strong>. Listeria study. <em>JIDC</em>." },
+  { year: 2016, text: "Faour-Klingbeil D, et al., <strong>Fadlallah S</strong>. Raw vegetables health risk. <em>JIDC</em>." },
+
+  { year: 2015, text: "<strong>Fadlallah S</strong>, et al. Rifampicin & Gentamicin effects. <em>Foodborne Pathogens and Disease</em>." },
+  { year: 2015, text: "Rahal E, <strong>Fadlallah S</strong>, et al. Shiga toxin E. coli treatment. <em>Frontiers</em>." },
+  { year: 2015, text: "Rajeh M, et al., <strong>Fadlallah S</strong>. MRSA characterization." },
+  { year: 2015, text: "Salloum N, et al., <strong>Fadlallah S</strong>. Combination therapy in mice. <em>Frontiers in Microbiology</em>." }
+];
+
+// Sort by year descending
+publications.sort((a, b) => b.year - a.year);
+
+// Render
+const container = document.getElementById("pub-list");
+
+let currentYear = null;
+
+publications.forEach(pub => {
+  if (pub.year !== currentYear) {
+    const yearHeader = document.createElement("h3");
+    yearHeader.textContent = pub.year;
+    container.appendChild(yearHeader);
+    currentYear = pub.year;
+  }
+
+  const div = document.createElement("div");
+  div.className = "pub";
+  div.innerHTML = pub.text;
+  container.appendChild(div);
+});
+</script>
 
 </body>
 </html>
